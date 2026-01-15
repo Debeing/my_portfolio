@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import { Github, Linkedin, Award, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Github, Linkedin, Award, } from "lucide-react";
+import { motion, } from "framer-motion";
 import Image from 'next/image';
 
 type Props = {
@@ -71,7 +71,7 @@ function CertificateManager({ langue }: { langue: string }) {
                 title: "Certification React Avancé",
                 titleEn: "Advanced React Certification",
                 issuer: "Meta",
-                date: "2025-01-10",
+                date: "2026-01-10",
                 imageUrl: "https://via.placeholder.com/600x400/6366f1/ffffff?text=React+Certificate",
                 expiresAt: new Date("2026-02-15") // Afficher jusqu'au 15 février
             },
@@ -80,7 +80,7 @@ function CertificateManager({ langue }: { langue: string }) {
                 title: "Formation Full Stack",
                 titleEn: "Full Stack Training",
                 issuer: "Udemy",
-                date: "2025-01-05",
+                date: "2026-01-05",
                 imageUrl: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Full+Stack+Certificate",
                 expiresAt: new Date("2026-02-01") // Afficher jusqu'au 1er février
             }
@@ -123,7 +123,7 @@ function CertificateManager({ langue }: { langue: string }) {
 
                     {/* Image du certificat */}
                     <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform group-hover:scale-[1.02]">
-                        
+                       
                         
                         {/* Overlay avec les détails */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
@@ -234,7 +234,7 @@ export default function Featured({ langue }: Props) {
             >
                 <div className="w-80 h-80 md:w-[30rem] md:h-[30rem] rounded-xl overflow-hidden p-5">
                     <Image
-                        src="https://i.postimg.cc/XJ5M4P6Z/Whats-App-Image-2025-07-16-11-21-19-a0434ebe.jpg"
+                        src="https://i.postimg.cc/2yxzv97D/507988285-122179633592309785-3607537026543587611-n.jpg"
                         alt="avatar"
                         width={480}
                         height={480}

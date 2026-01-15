@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { Code, Server, Database, BookOpen, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import CVDownloader from "../CVDownloader";
@@ -11,9 +10,6 @@ type Props = {
 };
 
 export default function AboutPage({ langue }: Props) {
-    const downloadCV = () => {
-        window.open("/cv.pdf", "_blank");
-    };
 
     const fadeUp = {
         hidden: { opacity: 0, y: 50 },

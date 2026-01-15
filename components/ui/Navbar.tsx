@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SelectDemo } from "../Language";
-import Link from "next/link";
 import CVDownloader from "../CVDownloader";
 
 
@@ -56,7 +55,7 @@ export default function Navbar({ langue, setLangue }: Props) {
             <header className="fixed w-full bg-transparent backdrop-blur-md shadow-md z-50">
                 <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6 md:px-8">
                     <div className="font-bold text-teal-700 dark:text-teal-400 text-sm md:text-base lg:text-lg">
-                        Toha DEKENI <span className="text-gray-700 dark:text-gray-300">•</span>
+                        Debeing Dev <span className="text-gray-700 dark:text-gray-300">•</span>
                     </div>
                     <div className="hidden md:flex items-center space-x-6">
                         <div className="w-32 h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
@@ -75,7 +74,7 @@ export default function Navbar({ langue, setLangue }: Props) {
                 text-sm       /* par défaut petit */
                 md:text-base  /* moyen sur écrans ≥ md */
                 lg:text-lg`}>
-                    Toha DEKENI <span className={logoDot}>•</span>
+                    Debeing Dev <span className={logoDot}>•</span>
                 </div>
 
 

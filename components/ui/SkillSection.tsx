@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Variants } from "framer-motion";
+import Image from "next/image";
 
 const skillsData = {
   Frontend: [
@@ -90,7 +91,7 @@ export default function SkillsSection({ langue }: Props) {
                   className="flex items-center gap-3 px-4 py-2 rounded-lg shadow-md hover:scale-105 hover:shadow-xl transition-transform cursor-pointer"
                   style={{ backgroundColor: theme === "light" ? "#ffffff" : "#1f2937" }}
                 >
-                  <img src={skill.image} alt={skill.nom} className="w-8 h-8 object-contain" />
+                  <Image src={skill.image} alt={skill.nom} width={32} height={32} className="w-8 h-8 object-contain" />
                   <span
                     className="font-medium text-sm md:text-base"
                     style={{ color: theme === "light" ? "#1f2937" : "#f9fafb" }}
