@@ -3,7 +3,6 @@
 import React from "react";
 import { Code, Server, Database, BookOpen, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
-import CVDownloader from "../CVDownloader";
 
 type Props = {
     langue: string;
@@ -90,16 +89,6 @@ export default function AboutPage({ langue }: Props) {
                     <Rocket className="w-5 h-5 text-purple-600" />
                     {langue === "Francais" ? "Projets personnels" : "Personal Projects"}
                 </div>
-            </motion.div>
-
-            <motion.div
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.5 }}
-                custom={4}
-            >
-                <CVDownloader langue={langue}/>
             </motion.div>
         </section>
     );

@@ -216,10 +216,10 @@ export default function Featured({ langue }: Props) {
                 </motion.div>
 
                 <motion.div variants={fadeIn(0.8)} className="flex gap-6 mt-6">
-                    <a href="https://www.linkedin.com/in/sabyoud-zohair-a5635920a/" target="_blank" className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <a href="https://www.linkedin.com/in/mbaitel-am-mbainaissem-eric-62a1b929a" target="_blank" className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
                         <Linkedin className="w-8 h-8 text-gray-800 dark:text-gray-200" />
                     </a>
-                    <a href="https://github.com/tohaDEKENI/" target="_blank" className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <a href="https://github.com/Debeing/" target="_blank" className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
                         <Github className="w-8 h-8 text-gray-800 dark:text-gray-200" />
                     </a>
                 </motion.div>
@@ -242,13 +242,6 @@ export default function Featured({ langue }: Props) {
                     />
                 </div>
             </motion.div>
-
-            <div className="hidden absolute bottom-6 left-1/2 transform -translate-x-1/2 md:flex flex-col items-center text-gray-600 dark:text-gray-300 animate-bounce">
-                <a href="#A propos" className="flex flex-col items-center gap-2">
-                    <div className="text-3xl">🖱️</div>
-                    <p className="text-base md:text-lg">Scroll Down</p>
-                </a>
-            </div>
         </section>
     );
 }
