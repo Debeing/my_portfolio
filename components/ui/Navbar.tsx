@@ -1,6 +1,6 @@
 'use client';
 
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -18,6 +18,12 @@ export default function Navbar({ langue, setLangue }: Props) {
     const { theme, setTheme } = useTheme();
     const [active, setActive] = useState('domicile');
     const [menuOpen, setMenuOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    // Résoudre l'erreur d'hydratation
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const menuItems = [
         { id: 'domicile', label: 'Domicile', anglais: 'Home' },
@@ -37,11 +43,29 @@ export default function Navbar({ langue, setLangue }: Props) {
         setMenuOpen(false);
     }
 
-    const textMain = theme === 'dark' ? 'text-gray-200' : 'text-gray-800';
-    const textActive = theme === 'dark' ? 'text-purple-400' : 'text-purple-600';
-    const hoverText = theme === 'dark' ? 'hover:text-purple-400' : 'hover:text-purple-600';
-    const logoDot = theme === 'dark' ? 'text-gray-300' : 'text-gray-700';
-    const menuBg = theme === 'dark' ? 'bg-gray-900/50 backdrop-blur-sm' : 'bg-white/50 backdrop-blur-sm';
+    // Classes CSS fixes (pas dépendantes du thème avant le montage)
+    const textMain = 'text-gray-800 dark:text-gray-200';
+    const textActive = 'text-purple-600 dark:text-purple-400';
+    const hoverText = 'hover:text-purple-600 dark:hover:text-purple-400';
+    const logoDot = 'text-gray-700 dark:text-gray-300';
+    const menuBg = 'bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm';
+
+    // Afficher un skeleton pendant l'hydratation pour éviter le flash
+    if (!mounted) {
+        return (
+            <header className="fixed w-full bg-transparent backdrop-blur-md shadow-md z-50">
+                <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6 md:px-8">
+                    <div className="font-bold text-teal-700 dark:text-teal-400 text-sm md:text-base lg:text-lg">
+                        Toha DEKENI <span className="text-gray-700 dark:text-gray-300">•</span>
+                    </div>
+                    <div className="hidden md:flex items-center space-x-6">
+                        <div className="w-32 h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        <div className="w-32 h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                    </div>
+                </div>
+            </header>
+        );
+    }
 
     return (
         <header className="fixed w-full bg-transparent backdrop-blur-md shadow-md z-50">
@@ -61,7 +85,7 @@ export default function Navbar({ langue, setLangue }: Props) {
                         <button
                             key={item.id}
                             onClick={() => handleScroll(item.id)}
-                            className={`group relative font-medium dark:text-white ${textMain} ${hoverText} transition-colors ${active === item.id ? textActive : ''}`}
+                            className={`group relative font-medium ${textMain} ${hoverText} transition-colors ${active === item.id ? textActive : ''}`}
                         >
                             {langue === "Anglais" ? item.anglais : item.label}
                             {active === item.id && (
