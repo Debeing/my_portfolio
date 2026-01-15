@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Twitter, Phone } from 'lucide-react'
+import { Github, Linkedin, Mail, Phone } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 type Props = {
@@ -21,9 +21,9 @@ export default function Footer({ langue }: Props) {
   const hoverText = '#ffffff'
 
   const socialLinks = [
-    { name: 'GitHub', icon: <Github className="w-5 h-5" />, href: 'https://github.com/tohaDEKENI/' },
-    { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/toha-dekeni-9b0599356/' },
-    { name: 'Email', icon: <Mail className="w-5 h-5" />, href: 'mailto:dekenitoha097@gmail.com' },
+    { name: 'GitHub', icon: <Github className="w-5 h-5" />, href: 'https://github.com/Debeing/' },
+    { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/mbaitel-am-mbainaissem-eric-62a1b929a/' },
+    { name: 'Email', icon: <Mail className="w-5 h-5" />, href: 'mailto:mbaitelameric@gmail.com' },
   ]
 
   const fadeUp = {
@@ -54,10 +54,10 @@ export default function Footer({ langue }: Props) {
           </p>
           <div className="text-sm space-y-1">
             <p className="flex items-center gap-2">
-              <Mail className="w-4 h-4" /> dekenitoha097@gmail.com
+              <Mail className="w-4 h-4" /> mbaitelameric@gmail.com
             </p>
             <p className="flex items-center gap-2">
-              <Phone className="w-4 h-4" /> +212 724-477160
+              <Phone className="w-4 h-4" /> +237 688-743-355
             </p>
           </div>
         </div>
@@ -114,7 +114,7 @@ export default function Footer({ langue }: Props) {
 
       {/* Copyright */}
       <div className="mt-12 text-center text-xs z-50" style={{ color: subTextColor }}>
-        © {currentYear} <span className="font-medium" style={{ color: textColor }}>Toha DEKENI</span>.{" "}
+        © {currentYear} <span className="font-medium" style={{ color: textColor }}>Debeing Dev</span>.{" "}
         {langue === "Anglais" ? "All rights reserved." : "Tous droits réservés"} 💙.
       </div>
     </motion.footer>

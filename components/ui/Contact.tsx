@@ -45,7 +45,6 @@ export default function Contact({ langue }: Props) {
   
 
   // Couleurs dynamiques
-  const bgColor = theme === "light" ? "#f9fafb" :  "#020b1dff" ;
   const cardColor = theme === "light" ? "#ffffff" : "#1f2937";
   const textColor = theme === "light" ? "#1f2937" : "#f9fafb";
   const subTextColor = theme === "light" ? "#4b5563" : "#d1d5db";
@@ -55,7 +54,7 @@ export default function Contact({ langue }: Props) {
     <section
       id="contact"
       className="min-h-screen flex flex-col items-center justify-center px-6 md:px-12 py-20 gap-12 z-40"
-      style={{ backgroundColor: bgColor, color: textColor }}
+      
     >
       {/* Titre */}
       <motion.div
@@ -91,7 +90,7 @@ export default function Contact({ langue }: Props) {
             <h2 className="text-lg font-semibold mt-6">
               {langue === "Anglais" ? "Phone" : "Téléphone"}
             </h2>
-            <p className="text-sm text-gray-400">+212 724-477160</p>
+            <p className="text-sm text-gray-400">+237 688-743-355</p>
           </motion.div>
 
           {/* Email */}
@@ -105,7 +104,7 @@ export default function Contact({ langue }: Props) {
               <Mail />
             </div>
             <h2 className="text-lg font-semibold mt-6">Email</h2>
-            <p className="text-sm text-gray-400">dekenitoha097@gmail.com</p>
+            <p className="text-sm text-gray-400">mbaitelameric@gmail.com</p>
           </motion.div>
 
           {/* Adresse */}
@@ -121,7 +120,7 @@ export default function Contact({ langue }: Props) {
             <h2 className="text-lg font-semibold mt-6">
               {langue === "Anglais" ? "Address" : "Adresse"}
             </h2>
-            <p className="text-sm text-gray-400">Casablanca, Maroc</p>
+            <p className="text-sm text-gray-400">Ngaoundéré, Cameroun</p>
           </motion.div>
 
           {/* Réseaux sociaux */}
@@ -138,9 +137,9 @@ export default function Contact({ langue }: Props) {
               {langue === "Anglais" ? "Follow me" : "Suivez-moi"}
             </h2>
             <div className="flex gap-4 text-xl">
-              <a href="https://github.com/tohaDEKENI/" target="_blank" className="hover:text-teal-500"><Github /></a>
-              <a href="https://www.linkedin.com/in/toha-dekeni-9b0599356/" target="_blank" className="hover:text-teal-500"><Linkedin /></a>
-              <a href='mailto:dekenitoha097@gmail.com' className="hover:text-teal-500"><Mail /></a>
+              <a href="https://github.com/Debeing/" target="_blank" className="hover:text-teal-500"><Github /></a>
+              <a href="https://www.linkedin.com/in/mbaitel-am-mbainaissem-eric-62a1b929a/" target="_blank" className="hover:text-teal-500"><Linkedin /></a>
+              <a href='mailto:mbaitelameric@gmail.com' className="hover:text-teal-500"><Mail /></a>
             </div>
           </motion.div>
         </div>

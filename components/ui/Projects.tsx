@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Github, ExternalLink, Eye } from "lucide-react";
+
+import { Github, ExternalLink, } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "./button";
+
 import { ProjectDetaille } from "../ProjectDetaille";
 
 const projetsWebInitial = [
@@ -65,7 +65,7 @@ export default function ProjectsSection({ langue }: Props) {
     projetsWebInitial.map(p => ({ ...p, currentSlide: 0 }))
   );
 
-  const bgColor = theme === "light" ? "#f9fafb" : "#111827";
+  
   const cardColor = theme === "light" ? "#ffffff" : "#1f2937";
   const textColor = theme === "light" ? "#1f2937" : "#f9fafb";
   const techBgColor = theme === "light" ? "#ede9fe" : "#4c1d95";
@@ -75,7 +75,7 @@ export default function ProjectsSection({ langue }: Props) {
     <section
       id="projets"
       className="flex flex-col items-center w-full justify-center min-h-screen px-6 md:px-12 py-20 gap-12 z-50"
-      style={{ backgroundColor: bgColor }}
+    
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-12" style={{ color: "#14b8a6" }}>
         {langue === "Anglais" ? "My Projects" : "Mes Projets"}
