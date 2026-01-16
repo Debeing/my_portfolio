@@ -8,17 +8,17 @@ export function ContactSection() {
   const cards = [
     {
       title: "Téléphone",
-      content: "+212 6436 83602",
+      content: "+237 688 743 355",
       icon: <Phone className="w-6 h-6 text-yellow-500" />,
     },
     {
       title: "Messagerie Électronique",
-      content: "thabelkodjo@gmail.com",
+      content: "mbaitelameric@gmail.com",
       icon: <Mail className="w-6 h-6 text-yellow-500" />,
     },
     {
       title: "Adresse",
-      content: "Casablanca, Maroc",
+      content: "Ngaoundéré, Cameroun",
       icon: <MapPin className="w-6 h-6 text-yellow-500" />,
     },
     {

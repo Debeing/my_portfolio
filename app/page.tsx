@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 
 
 
+
 export default function Home() {
   const [langue, setLangue] = useState<string>("Anglais")
 
@@ -23,6 +24,10 @@ export default function Home() {
       <section className="relative min-h-screen">
        
         <Featured langue={langue} />
+      </section>
+     
+      <section>
+        
       </section>
 
       {/* About avec particules en points */}
