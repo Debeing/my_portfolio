@@ -232,8 +232,8 @@ export default function Featured({ langue }: Props) {
             <Image
               src="https://i.postimg.cc/2yxzv97D/507988285-122179633592309785-3607537026543587611-n.jpg"
               alt="avatar"
-              width={320}
-              height={320}
+              width={300}
+              height={100}
               className="flex-shrink-0 rounded-xl shadow-lg rotate-[-2deg]"
               unoptimized
             />
@@ -241,8 +241,8 @@ export default function Featured({ langue }: Props) {
             <Image
               src="https://i.postimg.cc/909C9374/IMG-20251212-WA0130-1.jpg"
               alt="avatar"
-              width={340}
-              height={340}
+              width={300}
+              height={100}
               className="flex-shrink-0 rounded-xl shadow-xl rotate-[2deg] md:-mt-12"
               unoptimized
             />
@@ -250,8 +250,8 @@ export default function Featured({ langue }: Props) {
             <Image
               src="https://i.postimg.cc/L89nZTHS/IMG-20251101-WA0156-1.jpg"
               alt="avatar"
-              width={300}
-              height={200}
+              width={280}
+              height={100}
               className="flex-shrink-0 rounded-xl shadow-lg rotate-[-1.5deg] md:-mt-6"
               unoptimized
             />
@@ -260,7 +260,7 @@ export default function Featured({ langue }: Props) {
               src="https://i.postimg.cc/VkDKPDGw/IMG-20251004-WA0108-1.jpg"
               alt="avatar"
               width={280}
-              height={280}
+              height={100}
               className="flex-shrink-0 rounded-xl shadow-md rotate-[3deg] md:-mt-16"
               unoptimized
             />
