@@ -123,24 +123,15 @@ function CertificateManager({ langue }: { langue: string }) {
                     </div>
 
                     {/* Image du certificat */}
-                    <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform group-hover:scale-[1.02]">
+                    <div className=" ">
                         <Image
                             src={cert.imageUrl}
                             alt={langue === "Francais" ? cert.title : cert.titleEn}
-                            width={600}
-                            height={400}
-                            className="w-full h-auto object-cover"
+                            width={100}
+                            height={100}
+                            className="w-100 h-auto object-cover"
                         />
-                        
-                        {/* Overlay avec les détails */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                            <h3 className="text-white font-bold text-lg mb-1">
-                                {langue === "Francais" ? cert.title : cert.titleEn}
-                            </h3>
-                            <p className="text-gray-200 text-sm">
-                                {cert.issuer} • {cert.date}
-                            </p>
-                        </div>
+                       
                     </div>
 
                     {/* Informations sous l'image */}
@@ -164,20 +155,12 @@ export default function Featured({ langue }: Props) {
         visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
     };
 
-    const slideUp = (delay = 0) => ({
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay } },
-    });
 
     const fadeIn = (delay = 0) => ({
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { duration: 0.8, delay } },
     });
 
-    const scaleIn = (delay = 0) => ({
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay } },
-    });
 
     const words = langue === "Francais"
         ? ["Développeur Web", "Étudiant en Informatique", "Passionné de Tech"]
@@ -188,7 +171,7 @@ export default function Featured({ langue }: Props) {
     return (
         <section
             id="domicile"
-            className="relative flex flex-col-reverse md:flex-row items-center pt-32 md:pt-0 justify-center min-h-screen max-w-7xl mx-auto px-6 md:px-8 gap-12"
+            className="relative md:flex-row items-center md:pt-0 justify-center min-h-screen max-w-7xl mx-auto px-6 md:px-8 gap-12"
         >
             <motion.div
                 className="flex-1 space-y-8 md:space-y-10"
@@ -201,7 +184,6 @@ export default function Featured({ langue }: Props) {
                 </motion.div>
 
                 <motion.div
-                    variants={slideUp(0.2)}
                     className="text-2xl md:text-3xl font-semibold"
                 >
                     {langue === "Francais" ? "Je suis " : "I'm "}
@@ -209,7 +191,7 @@ export default function Featured({ langue }: Props) {
                     <span className="animate-pulse">|</span>
                 </motion.div>
 
-                <motion.p variants={slideUp(0.4)} className="text-gray-700 dark:text-gray-300 text-lg md:text-xl max-w-xl leading-relaxed">
+                <motion.p  className="text-gray-700 dark:text-gray-300 text-lg md:text-xl max-w-xl leading-relaxed">
                     {langue === "Francais" ? "Étudiant en informatique | Développeur Web Full Stack | Passionné par la création de solutions web innovantes, l'optimisation des performances et la résolution de défis techniques | Toujours motivé par l'apprentissage des nouvelles technologies."
                         : "Computer Science Student | Full Stack Web Developer | Passionate about building innovative web solutions, optimizing performance, and solving technical challenges | Always motivated by learning new technologies."
                     }
@@ -234,19 +216,40 @@ export default function Featured({ langue }: Props) {
 
             <motion.div
                 className="flex-1 flex justify-center md:justify-end"
-                variants={scaleIn(0.5)}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.5 }}
             >
-                <div className="w-80 h-80 md:w-[30rem] md:h-[30rem] rounded-xl overflow-hidden p-5">
+                <div className="max-w-7xl mx-auto px-3 lg:px-8 flex gap-30 justify-center">
                     <Image
                         src="https://i.postimg.cc/2yxzv97D/507988285-122179633592309785-3607537026543587611-n.jpg"
                         alt="avatar"
-                        width={480}
-                        height={480}
-                        className="w-full h-full object-cover image"
+                        width={400}
+                        height={400}
+                        className="mt-10 skew-1"
                     />
+                    <Image
+                        src="https://i.postimg.cc/2yxzv97D/507988285-122179633592309785-3607537026543587611-n.jpg"
+                        alt="avatar"
+                        width={400}
+                        height={400}
+                        className="skew-12"
+                    />
+                    <Image
+                        src="https://i.postimg.cc/2yxzv97D/507988285-122179633592309785-3607537026543587611-n.jpg"
+                        alt="avatar"
+                        width={400}
+                        height={400}
+                        className="mt-15"
+                    />
+                    <Image
+                        src="https://i.postimg.cc/2yxzv97D/507988285-122179633592309785-3607537026543587611-n.jpg"
+                        alt="avatar"
+                        width={400}
+                        height={400}
+                        className="skew-14"
+                    />
+                   
                 </div>
             </motion.div>
         </section>

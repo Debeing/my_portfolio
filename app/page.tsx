@@ -25,10 +25,6 @@ export default function Home() {
        
         <Featured langue={langue} />
       </section>
-     
-      <section>
-        
-      </section>
 
       {/* About avec particules en points */}
       <section className="relative min-h-screen">
