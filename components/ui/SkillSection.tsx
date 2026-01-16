@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Variants } from "framer-motion";
@@ -13,14 +13,12 @@ const skillsData = {
     { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg", nom: "Javascript" },
     { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", nom: "React" },
     { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg", nom: "TypeScript" },
-      { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", nom: "Next.js" },
+    { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", nom: "Next.js" },
     { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", nom: "Tailwind" },
-
   ],
   Backend: [
     { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg", nom: "Node.js" },
     { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg", nom: "Express" },
-    
   ],
   Database: [
     { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg", nom: "MySQL" },
@@ -40,6 +38,12 @@ type Props = {
 
 export default function SkillsSection({ langue }: Props) {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Résoudre l'erreur d'hydratation
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const container: Variants = {
     hidden: {},
@@ -55,16 +59,36 @@ export default function SkillsSection({ langue }: Props) {
     },
   };
 
+  // Skeleton pendant l'hydratation
+  if (!mounted) {
+    return (
+      <section
+        id="Competence"
+        className="flex flex-col items-center justify-center min-h-screen px-6 md:px-12 py-20 gap-16 z-40"
+      >
+        <div className="w-64 h-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+        <div className="flex flex-col gap-12 w-full max-w-5xl">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="flex flex-col gap-4">
+              <div className="w-32 h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="flex flex-wrap gap-6">
+                {[1, 2, 3].map((j) => (
+                  <div key={j} className="w-32 h-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="Competence"
       className="flex flex-col items-center justify-center min-h-screen px-6 md:px-12 py-20 gap-16 z-40"
-     
     >
-      <h2
-        className="text-4xl md:text-5xl font-bold mb-12"
-        style={{ color: theme === "light" ? "#14b8a6" : "#5eead4" }}
-      >
+      <h2 className="text-4xl md:text-5xl font-bold mb-12 text-teal-600 dark:text-teal-300">
         {langue === "Anglais" ? "My Skills" : "Mes Compétences"}
       </h2>
 
@@ -78,10 +102,7 @@ export default function SkillsSection({ langue }: Props) {
             viewport={{ once: false, amount: 0.3 }}
             className="flex flex-col gap-4"
           >
-            <h3
-              className="text-2xl md:text-3xl font-semibold"
-              style={{ color: theme === "light" ? "#1f2937" : "#f9fafb" }}
-            >
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-100">
               {category}
             </h3>
 
@@ -90,14 +111,10 @@ export default function SkillsSection({ langue }: Props) {
                 <motion.div
                   key={skill.nom}
                   variants={items}
-                  className="flex items-center gap-3 px-4 py-2 rounded-lg shadow-md hover:scale-105 hover:shadow-xl transition-transform cursor-pointer"
-                  style={{ backgroundColor: theme === "light" ? "#ffffff" : "#1f2937" }}
+                  className="flex items-center gap-3 px-4 py-2 rounded-lg shadow-md hover:scale-105 hover:shadow-xl transition-transform cursor-pointer bg-white dark:bg-gray-800"
                 >
                   <Image src={skill.image} alt={skill.nom} width={32} height={32} className="w-8 h-8 object-contain" />
-                  <span
-                    className="font-medium text-sm md:text-base"
-                    style={{ color: theme === "light" ? "#1f2937" : "#f9fafb" }}
-                  >
+                  <span className="font-medium text-sm md:text-base text-gray-800 dark:text-gray-100">
                     {skill.nom}
                   </span>
                 </motion.div>

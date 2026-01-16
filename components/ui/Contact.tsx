@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { MapPin, Share2, Phone, Mail, Github, Linkedin, Loader2Icon } from 'lucide-react'
 import { useTheme } from "next-themes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 type Props = {
@@ -15,11 +15,17 @@ type Props = {
 
 export default function Contact({ langue }: Props) {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [name, setName] = useState<string>("")
   const [lastName, setLastname] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [message, setMessage] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
+
+  // Résoudre l'erreur d'hydratation
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   async function handleSubmit(e: React.ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -42,19 +48,31 @@ export default function Contact({ langue }: Props) {
       setName("");
     }
   }
-  
 
-  // Couleurs dynamiques
-  const cardColor = theme === "light" ? "#ffffff" : "#1f2937";
-  const textColor = theme === "light" ? "#1f2937" : "#f9fafb";
-  const subTextColor = theme === "light" ? "#4b5563" : "#d1d5db";
-  const hoverCardColor = theme === "light" ? "#f3f4f6" : "#374151";
+  // Skeleton pendant l'hydratation
+  if (!mounted) {
+    return (
+      <section
+        id="contact"
+        className="min-h-screen flex flex-col items-center justify-center px-6 md:px-12 py-20 gap-12 z-40"
+      >
+        <div className="w-64 h-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+        <div className="grid md:grid-cols-2 gap-10 w-full max-w-6xl">
+          <div className="grid grid-cols-2 gap-6">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="w-full h-40 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse"></div>
+            ))}
+          </div>
+          <div className="w-full h-96 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse"></div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
       id="contact"
       className="min-h-screen flex flex-col items-center justify-center px-6 md:px-12 py-20 gap-12 z-40"
-      
     >
       {/* Titre */}
       <motion.div
@@ -63,10 +81,10 @@ export default function Contact({ langue }: Props) {
         transition={{ duration: 0.6 }}
         className="text-center"
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-2" style={{ color: "#14b8a6" }}>
+        <h1 className="text-4xl md:text-5xl font-bold mb-2 text-teal-600 dark:text-teal-400">
           {langue === "Anglais" ? "Contact Me" : "Contactez-moi"}
         </h1>
-        <p className="text-lg" style={{ color: subTextColor }}>
+        <p className="text-lg text-gray-600 dark:text-gray-300">
           {langue === "Anglais"
             ? "Got an idea? Let's turn it into reality together!"
             : "Une idée ? Transformons-la en réalité ensemble !"}
@@ -79,15 +97,14 @@ export default function Contact({ langue }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Téléphone */}
           <motion.div
-            whileHover={{ scale: 1.05, backgroundColor: hoverCardColor }}
+            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="relative rounded-2xl shadow-lg p-6 flex flex-col items-center text-center gap-3 transition-all"
-            style={{ backgroundColor: cardColor }}
+            className="relative rounded-2xl shadow-lg p-6 flex flex-col items-center text-center gap-3 transition-all bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
           >
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-teal-500 text-white absolute -top-6">
               <Phone />
             </div>
-            <h2 className="text-lg font-semibold mt-6">
+            <h2 className="text-lg font-semibold mt-6 text-gray-800 dark:text-gray-100">
               {langue === "Anglais" ? "Phone" : "Téléphone"}
             </h2>
             <p className="text-sm text-gray-400">+237 688-743-355</p>
@@ -95,29 +112,27 @@ export default function Contact({ langue }: Props) {
 
           {/* Email */}
           <motion.div
-            whileHover={{ scale: 1.05, backgroundColor: hoverCardColor }}
+            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="relative rounded-2xl shadow-lg p-6 flex flex-col items-center text-center gap-3 transition-all"
-            style={{ backgroundColor: cardColor }}
+            className="relative rounded-2xl shadow-lg p-6 flex flex-col items-center text-center gap-3 transition-all bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
           >
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-teal-500 text-white absolute -top-6">
               <Mail />
             </div>
-            <h2 className="text-lg font-semibold mt-6">Email</h2>
+            <h2 className="text-lg font-semibold mt-6 text-gray-800 dark:text-gray-100">Email</h2>
             <p className="text-sm text-gray-400">mbaitelameric@gmail.com</p>
           </motion.div>
 
           {/* Adresse */}
           <motion.div
-            whileHover={{ scale: 1.05, backgroundColor: hoverCardColor }}
+            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="relative rounded-2xl shadow-lg p-6 flex flex-col items-center text-center gap-3 transition-all"
-            style={{ backgroundColor: cardColor }}
+            className="relative rounded-2xl shadow-lg p-6 flex flex-col items-center text-center gap-3 transition-all bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
           >
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-teal-500 text-white absolute -top-6">
               <MapPin />
             </div>
-            <h2 className="text-lg font-semibold mt-6">
+            <h2 className="text-lg font-semibold mt-6 text-gray-800 dark:text-gray-100">
               {langue === "Anglais" ? "Address" : "Adresse"}
             </h2>
             <p className="text-sm text-gray-400">Ngaoundéré, Cameroun</p>
@@ -125,18 +140,17 @@ export default function Contact({ langue }: Props) {
 
           {/* Réseaux sociaux */}
           <motion.div
-            whileHover={{ scale: 1.05, backgroundColor: hoverCardColor }}
+            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="relative rounded-2xl shadow-lg p-6 flex flex-col items-center text-center gap-4 transition-all"
-            style={{ backgroundColor: cardColor }}
+            className="relative rounded-2xl shadow-lg p-6 flex flex-col items-center text-center gap-4 transition-all bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
           >
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-teal-500 text-white absolute -top-6">
               <Share2 />
             </div>
-            <h2 className="text-lg font-semibold mt-6">
+            <h2 className="text-lg font-semibold mt-6 text-gray-800 dark:text-gray-100">
               {langue === "Anglais" ? "Follow me" : "Suivez-moi"}
             </h2>
-            <div className="flex gap-4 text-xl">
+            <div className="flex gap-4 text-xl text-gray-700 dark:text-gray-300">
               <a href="https://github.com/Debeing/" target="_blank" className="hover:text-teal-500"><Github /></a>
               <a href="https://www.linkedin.com/in/mbaitel-am-mbainaissem-eric-62a1b929a/" target="_blank" className="hover:text-teal-500"><Linkedin /></a>
               <a href='mailto:mbaitelameric@gmail.com' className="hover:text-teal-500"><Mail /></a>
@@ -149,8 +163,7 @@ export default function Contact({ langue }: Props) {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl shadow-xl p-8 flex flex-col gap-6 z-40"
-          style={{ backgroundColor: cardColor, color: textColor }}
+          className="rounded-2xl shadow-xl p-8 flex flex-col gap-6 z-40 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
           onSubmit={handleSubmit}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -183,11 +196,7 @@ export default function Contact({ langue }: Props) {
           />
           <Button
             type="submit"
-            className="font-semibold transition-all cursor-pointer"
-            style={{
-              backgroundColor: "#14b8a6",
-              color: "#ffffff"
-            }}
+            className="font-semibold transition-all cursor-pointer bg-teal-600 hover:bg-teal-700 text-white"
             disabled={loading}
           >
             {loading ? (

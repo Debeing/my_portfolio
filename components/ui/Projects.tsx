@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Github, ExternalLink, } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -41,7 +41,7 @@ const projetsWebInitial = [
     id:3,
     titre:"e-commerce",
     titreEN:"e-commerce",
-    description:"Site e‑commerce développé avec un système d’authentification sécurisé et un espace administrateur complet permettant la gestion des produits, des commandes et des utilisateurs. Le site offre une expérience utilisateur fluide et intuitive, permettant aux clients de parcourir les produits et de passer leurs commandes facilement, tout en donnant aux administrateurs un contrôle total sur la plateforme. Ce projet illustre mes compétences en développement web, gestion de bases de données et sécurité des applications.",
+    description:"Site e‑commerce développé avec un système d'authentification sécurisé et un espace administrateur complet permettant la gestion des produits, des commandes et des utilisateurs. Le site offre une expérience utilisateur fluide et intuitive, permettant aux clients de parcourir les produits et de passer leurs commandes facilement, tout en donnant aux administrateurs un contrôle total sur la plateforme. Ce projet illustre mes compétences en développement web, gestion de bases de données et sécurité des applications.",
     descriptionEN:"E‑commerce website developed with a secure authentication system and a full-featured admin panel for managing products, orders, and users. The site provides a smooth and intuitive user experience, allowing customers to browse products and place orders easily, while giving administrators complete control over the platform. This project demonstrates my skills in web development, database management, and application security.",
     technologies: ["Next.js", "Tailwind CSS", "TypeScript", "daysiUI"],
     images:[
@@ -61,37 +61,55 @@ type Props = {
 
 export default function ProjectsSection({ langue }: Props) {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [projetsWeb, setProjetsWeb] = useState(
     projetsWebInitial.map(p => ({ ...p, currentSlide: 0 }))
   );
 
-  
-  const cardColor = theme === "light" ? "#ffffff" : "#1f2937";
-  const textColor = theme === "light" ? "#1f2937" : "#f9fafb";
-  const techBgColor = theme === "light" ? "#ede9fe" : "#4c1d95";
-  const techTextColor = theme === "light" ? "#7c3aed" : "#d8b4fe";
+  // Résoudre l'erreur d'hydratation
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Skeleton pendant l'hydratation
+  if (!mounted) {
+    return (
+      <section
+        id="projets"
+        className="flex flex-col items-center w-full justify-center min-h-screen px-6 md:px-12 py-20 gap-12 z-50"
+      >
+        <div className="w-64 h-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+        <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="w-full h-96 bg-gray-200 dark:bg-gray-700 rounded-xl animate-pulse"></div>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
       id="projets"
       className="flex flex-col items-center w-full justify-center min-h-screen px-6 md:px-12 py-20 gap-12 z-50"
-    
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-12" style={{ color: "#14b8a6" }}>
+      <h2 className="text-4xl md:text-5xl font-bold mb-12 text-teal-600 dark:text-teal-400">
         {langue === "Anglais" ? "My Projects" : "Mes Projets"}
       </h2>
 
       <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-40">
-        {projetsWeb.map((projet, idx) => (
+        {projetsWeb.map((projet) => (
           <div
             key={projet.id}
-            className="flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer z-50"
-            style={{ backgroundColor: cardColor }}
+            className="flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer z-50 bg-white dark:bg-gray-800"
           >
             {/* Carousel */}
             <div className="relative w-full">
-              <img
+              <Image
                 src={projet.images[projet.currentSlide]}
+                alt={langue === "Anglais" ? projet.titreEN : projet.titre}
+                width={600}
+                height={192}
                 className="w-full h-48 object-cover rounded-t-xl"
               />
 
@@ -131,18 +149,17 @@ export default function ProjectsSection({ langue }: Props) {
 
             {/* Contenu projet */}
             <div className="p-4 flex flex-col gap-2">
-              <h3 className="text-xl font-semibold" style={{ color: textColor }}>
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
                 {langue === "Anglais" ? projet.titreEN : projet.titre}
               </h3>
-              <p className="text-sm" style={{ color: textColor }}>
+              <p className="text-sm text-gray-800 dark:text-gray-100">
                 {langue === "Anglais" ? projet.descriptionEN : projet.description}
               </p>
               <div className="flex flex-wrap gap-2 mt-2">
                 {projet.technologies.map(tech => (
                   <span
                     key={tech}
-                    className="text-xs px-2 py-1 rounded-full"
-                    style={{ backgroundColor: techBgColor, color: techTextColor }}
+                    className="text-xs px-2 py-1 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300"
                   >
                     {tech}
                   </span>
@@ -153,8 +170,7 @@ export default function ProjectsSection({ langue }: Props) {
                   <a
                     href={projet.lienDemo}
                     target="_blank"
-                    className="flex items-center gap-1 font-medium hover:underline"
-                    style={{ color: techTextColor }}
+                    className="flex items-center gap-1 font-medium hover:underline text-purple-700 dark:text-purple-300"
                   >
                     Demo <ExternalLink className="w-4 h-4" />
                   </a>
@@ -163,15 +179,13 @@ export default function ProjectsSection({ langue }: Props) {
                   <a
                     href={projet.lienCode}
                     target="_blank"
-                    className="flex items-center gap-1 font-medium hover:underline"
-                    style={{ color: techTextColor }}
+                    className="flex items-center gap-1 font-medium hover:underline text-purple-700 dark:text-purple-300"
                   >
                     Code <Github className="w-4 h-4" />
                   </a>
                 )}
 
                 {/* Nouveau bouton "Voir plus" avec icône */}
-
                 <ProjectDetaille projet={projet} />
               </div>
             </div>

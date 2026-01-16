@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Github, Linkedin, Award, } from "lucide-react";
-import { motion, } from "framer-motion";
-import Image from 'next/image';
+import { motion,} from "framer-motion";
+
 
 type Props = {
     langue: string
@@ -71,18 +72,18 @@ function CertificateManager({ langue }: { langue: string }) {
                 title: "Certification React Avancé",
                 titleEn: "Advanced React Certification",
                 issuer: "Meta",
-                date: "2026-01-10",
-                imageUrl: "https://via.placeholder.com/600x400/6366f1/ffffff?text=React+Certificate",
-                expiresAt: new Date("2026-02-15") // Afficher jusqu'au 15 février
+                date: "2025-01-10",
+                imageUrl: "https://i.postimg.cc/wTxBdJpQ/Coursera-BQH35HD0RAB8.png",
+                expiresAt: new Date("2026-12-31") // Afficher jusqu'au 31 décembre 2026
             },
             {
                 id: "2",
                 title: "Formation Full Stack",
                 titleEn: "Full Stack Training",
                 issuer: "Udemy",
-                date: "2026-01-05",
-                imageUrl: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Full+Stack+Certificate",
-                expiresAt: new Date("2026-02-01") // Afficher jusqu'au 1er février
+                date: "2025-01-05",
+                imageUrl: "https://i.postimg.cc/wTxBdJpQ/Coursera-BQH35HD0RAB8.png",
+                expiresAt: new Date("2026-12-31") // Afficher jusqu'au 31 décembre 2026
             }
         ];
 
@@ -123,7 +124,13 @@ function CertificateManager({ langue }: { langue: string }) {
 
                     {/* Image du certificat */}
                     <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform group-hover:scale-[1.02]">
-                       
+                        <Image
+                            src={cert.imageUrl}
+                            alt={langue === "Francais" ? cert.title : cert.titleEn}
+                            width={600}
+                            height={400}
+                            className="w-full h-auto object-cover"
+                        />
                         
                         {/* Overlay avec les détails */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
@@ -216,10 +223,10 @@ export default function Featured({ langue }: Props) {
                 </motion.div>
 
                 <motion.div variants={fadeIn(0.8)} className="flex gap-6 mt-6">
-                    <a href="https://www.linkedin.com/in/mbaitel-am-mbainaissem-eric-62a1b929a" target="_blank" className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <a href="https://www.linkedin.com/in/sabyoud-zohair-a5635920a/" target="_blank" className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
                         <Linkedin className="w-8 h-8 text-gray-800 dark:text-gray-200" />
                     </a>
-                    <a href="https://github.com/Debeing/" target="_blank" className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <a href="https://github.com/tohaDEKENI/" target="_blank" className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
                         <Github className="w-8 h-8 text-gray-800 dark:text-gray-200" />
                     </a>
                 </motion.div>
