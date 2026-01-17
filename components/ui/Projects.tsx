@@ -10,18 +10,18 @@ import { ProjectDetaille } from "../ProjectDetaille";
 const projetsWebInitial = [
   {
     id: 1,
-    titre: "Quiz Hub – Application de Quiz Interactive",
-    titreEN: "Quiz Hub – Interactive Quiz Application",
-    description: "Application web permettant aux utilisateurs de tester leurs connaissances à travers des quiz dynamiques. Authentification, score en temps réel, interface responsive et gestion efficace du parcours utilisateur.",
-    descriptionEN: "Web application allowing users to test their knowledge through dynamic quizzes. Features include authentication, real-time scoring, responsive interface, and efficient user journey management.",
-    technologies: ["Next.js", "Tailwind CSS", "Lucide-react", "TypeScript", "MySQL"],
+    titre: "Site web",
+    titreEN: ".NET Community Conference 2025 | 8th edition",
+    description: "Développement frontend du site web de la communauté .NET Cameroun. Retranscription en code de maquettes fournies par les graphistes permettant d'obtenir des interfaces interactives et ludiques.",
+    descriptionEN: "Frontend development for the .NET Community Cameroon website. Translating designer mockups into code to create interactive and engaging user interfaces.",
+    technologies: ["Next.js", "Tailwind CSS", "Lucide-react", "TypeScript",],
     images: [
-      "https://i.postimg.cc/s2yGpkwz/535-ACCA9-17-EE-4-E23-A5-DC-F33-C53-BB3346.png",
-      "https://i.postimg.cc/kX7b6YF5/59-CB660-E-871-C-4-B96-A34-B-7-FA42665717-B.png",
-      "https://i.postimg.cc/GhnjMjP0/C3071514-925-F-42-BF-9-A19-8-D2871-C608-D6.png"
+      "https://i.postimg.cc/3w0dPk6R/Screenshot-2026-01-17-001840.png",
+      "https://i.postimg.cc/j23TxXwH/Screenshot-2026-01-17-002035.png",
+      "https://i.postimg.cc/RFPyK0Mj/Screenshot-2026-01-17-002730.png"
     ],
-    lienCode: "https://github.com/tohaDEKENI/quiz_hub",
-    lienDemo: "https://quiz-hub-xq76.vercel.app/"
+    lienCode: "https://github.com/Debeing/Dotnet",
+    lienDemo: "https://dotnet-rust.vercel.app/"
   },
   {
     id: 2,
@@ -31,11 +31,11 @@ const projetsWebInitial = [
     descriptionEN: "My personal portfolio website showcasing my projects and web development skills. Built with Next.js and Tailwind CSS, fully responsive and interactive.",
     technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Shadcn/UI"],
     images: [
-      "https://i.postimg.cc/HL1MkMxQ/Whats-App-Image-2025-10-01-08-03-47-e46476be.jpg",
-      "https://i.postimg.cc/K86Wc0Bk/screenshot-1759302678523.png"
+      "https://i.postimg.cc/BnKjz8Rv/Screenshot-2026-01-17-004901.png",
+      "https://i.postimg.cc/dtd7Hkzx/Screenshot-2026-01-17-005451.png"
     ],
-    lienCode: "https://github.com/tohaDEKENI/my_portfolio",
-    lienDemo: "https://my-portfolio-liart-tau-47.vercel.app/",
+    lienCode: "https://github.com/Debeing/my_portfolio",
+    lienDemo: "https://my-portfolio-omega-six-85.vercel.app/",
   },
   {
     id:3,
@@ -111,6 +111,7 @@ export default function ProjectsSection({ langue }: Props) {
                 width={600}
                 height={192}
                 className="w-full h-48 object-cover rounded-t-xl"
+                  unoptimized
               />
 
               {projet.images.length > 1 && (
