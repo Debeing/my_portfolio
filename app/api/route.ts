@@ -47,13 +47,13 @@ import path from "path";
 import fs from "fs";
 
 export async function GET() {
-  const filePath = path.join(process.cwd(), "public", "DEKENI_Toha_CV.pdf");
+  const filePath = path.join(process.cwd(), "public", "Cv(1).pdf");
   const fileBuffer = fs.readFileSync(filePath);
 
   return new NextResponse(fileBuffer, {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": 'attachment; filename="DEKENI_Toha_CV.pdf"',
+      "Content-Disposition": 'attachment; filename="Cv(1).pdf"',
     },
   });
 }
