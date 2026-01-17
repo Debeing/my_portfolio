@@ -17,7 +17,7 @@ export default function Home() {
   const [langue, setLangue] = useState<string>("Anglais")
 
   return (
-    <div className="max-w-7xl mx-auto ">
+    <div className="max-w-7xl mx-auto min-h-screen overflow-x-hidden ">
       <Navbar langue={langue} setLangue={setLangue} />
 
       {/* Hero avec particules en lignes */}

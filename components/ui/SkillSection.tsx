@@ -64,7 +64,7 @@ export default function SkillsSection({ langue }: Props) {
     return (
       <section
         id="Competence"
-        className="flex flex-col items-center justify-center min-h-screen px-6 md:px-12 py-20 gap-16 z-40"
+        className="flex flex-col items-center justify-center md:px-12 "
       >
         <div className="w-64 h-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
         <div className="flex flex-col gap-12 w-full max-w-5xl">
@@ -86,7 +86,7 @@ export default function SkillsSection({ langue }: Props) {
   return (
     <section
       id="Competence"
-      className="flex flex-col items-center justify-center min-h-screen px-6 md:px-12 py-20 gap-16 z-40"
+      className="flex flex-col items-center justify-center md:px-12"
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-teal-600 dark:text-teal-300">
         {langue === "Anglais" ? "My Skills" : "Mes Compétences"}

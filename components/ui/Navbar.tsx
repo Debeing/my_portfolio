@@ -67,7 +67,7 @@ export default function Navbar({ langue, setLangue }: Props) {
     }
 
     return (
-        <header className="fixed w-full mx-auto max-w-7xl bg-transparent backdrop-blur-md shadow-md z-50">
+        <header className="fixed top-0 left-0 w-full h-16 z-50 backdrop-blur">
             <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6 md:px-8">
                 {/* Logo */}
                 <div className={`font-bold text-teal-700 dark:text-teal-400 
