@@ -142,8 +142,6 @@ function CertificateManager({ langue }: { langue: string }) {
                 className="w-full h-auto object-cover"
                 unoptimized
               />
-              
-              
             </div>
           </a>
 
@@ -211,20 +209,20 @@ export default function Featured({ langue }: Props) {
         </motion.p>
 
         {/* Section modifiée avec les certificats */}
-        <motion.div variants={fadeIn(0.6)} className="space-y-4">
+        <motion.div  className="space-y-4">
           <CertificateManager langue={langue} />
         </motion.div>
 
         <motion.div variants={fadeIn(0.8)} className="flex gap-6 mt-6">
           <a
-            href="https://www.linkedin.com/in/sabyoud-zohair-a5635920a/"
+            href="https://www.linkedin.com/in/mbaitel-am-mbainaissem-eric-62a1b929a"
             target="_blank"
             className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           >
             <Linkedin className="w-8 h-8 text-gray-800 dark:text-gray-200" />
           </a>
           <a
-            href="https://github.com/tohaDEKENI/"
+            href="https://github.com/Debeing/"
             target="_blank"
             className="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           >

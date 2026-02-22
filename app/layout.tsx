@@ -4,21 +4,21 @@ import { ThemeProvider } from "@/components/themeProvider";
 
 
 export const metadata: Metadata = {
-  title: "Toha DEKENI – Portfolio Développeur Web",
-  description: "Portfolio en ligne de Toha DEKENI. Découvrez mes projets web, mes compétences en développement frontend et backend, et contactez-moi pour vos projets.",
-  keywords: ["Portfolio", "Développeur Web", "React", "Next.js", "Node.js", "Projets", "Toha DEKENI"],
-  authors: [{ name: "Toha DEKENI", url: "https://github.com/tohaDEKENI" }],
+  title: "Mbaitel-am Mbainaissem Eric – Portfolio Développeur Web",
+  description: "Portfolio en ligne de Mbaitel-am Mbainaissem Eric. Découvrez mes projets web, mes compétences en développement frontend et backend, et contactez-moi pour vos projets.",
+  keywords: ["Portfolio", "Développeur Web", "React", "Next.js", "Node.js", "Projets", "Mbaitel-am Mbainaissem Eric"],
+  authors: [{ name: "Mbaitel-am Mbainaissem Eric", url: "https://github.com/Mbaitel-am-Mbainaissem-Eric" }],
   openGraph: {
-    title: "Toha DEKENI – Portfolio Développeur Web",
+    title: "Mbaitel-am Mbainaissem Eric – Portfolio Développeur Web",
     description: "Découvrez mes projets web et compétences en développement frontend et backend.",
     url: "https://ton-domaine.com",
-    siteName: "Toha DEKENI Portfolio",
+    siteName: "Mbaitel-am Mbainaissem Eric Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://i.postimg.cc/3x3QzSGV/Portfolio-Mbaitel-am-Mbainaissem-Eric.png",
         width: 1200,
         height: 630,
-        alt: "Portfolio Toha DEKENI",
+        alt: "Portfolio Mbaitel-am Mbainaissem Eric",
       },
     ],
     locale: "fr_FR",
