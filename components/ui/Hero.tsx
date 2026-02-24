@@ -117,14 +117,7 @@ function CertificateManager({ langue }: { langue: string }) {
           transition={{ delay: idx * 0.15, duration: 0.6 }}
           className="relative group"
         >
-          {/* Badge "Nouveau" */}
-          <div className="absolute top-3 left-3 z-10 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg flex items-center gap-1">
-            <Award className="w-3 h-3" />
-            {langue === "Francais" ? "Nouveau" : "New"}
-          </div>
-
           
-
           {/* Lien cliquable sur l'image */}
           <a
             href={cert.verifyUrl}
@@ -184,7 +177,7 @@ export default function Featured({ langue }: Props) {
       className="relative pt-24 md:pt-28"
     >
       <motion.div
-        className="flex-1 space-y-8 md:space-y-10"
+        className=" flex-1 space-y-8 md:space-y-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.5 }}

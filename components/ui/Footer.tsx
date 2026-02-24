@@ -127,7 +127,7 @@ export default function Footer({ langue }: Props) {
       {/* Copyright */}
       <div className="mt-12 text-center text-xs z-50 text-gray-600 dark:text-gray-400">
         © {currentYear} <span className="font-medium text-gray-700 dark:text-gray-300">Debeing Dev</span>.{" "}
-        {langue === "Anglais" ? "All rights reserved." : "Tous droits réservés"} 💙.
+        {langue === "Anglais" ? "All rights reserved." : "Tous droits réservés"} 
       </div>
     </motion.footer>
   )

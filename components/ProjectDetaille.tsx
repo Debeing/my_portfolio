@@ -1,9 +1,10 @@
 'use client';
 
-import { Button } from "./ui/button";
+// import { Button } from "./ui/button";
 import { Eye } from "lucide-react";
-import { useState, useRef } from "react";
+// import { useState } from "react";
 import { X } from "lucide-react";
+// import Image from "next/image";
 type Project = {
     id: number;
     titre: string;
@@ -19,15 +20,15 @@ type Props = {
 };
 
 export function ProjectDetaille({ projet }: Props) {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    // const [currentSlide, setCurrentSlide] = useState(0);
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % projet.images.length);
-    };
+    // const nextSlide = () => {
+    //     setCurrentSlide((prev) => (prev + 1) % projet.images.length);
+    // };
 
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + projet.images.length) % projet.images.length);
-    };
+    // const prevSlide = () => {
+    //     setCurrentSlide((prev) => (prev - 1 + projet.images.length) % projet.images.length);
+    // };
 
     // on crée un id unique pour le modal
     const modalId = `modal_project_${projet.id}`;
@@ -46,20 +47,20 @@ export function ProjectDetaille({ projet }: Props) {
                     <h2 className="text-xl font-bold mb-4">{projet.titre}</h2>
 
                     {/* Carousel */}
-                    <div className="relative w-full h-10/12 rounded-lg overflow-hidden mb-4">
-                        <img
+                    {/* <div className="relative w-full h-10/12 rounded-lg overflow-hidden mb-4">
+                        <Image
                             src={projet.images[currentSlide]}
                             alt={`${projet.titre} image ${currentSlide + 1}`}
                             className="w-full h-full object-cover border-2"
                         />
                         {projet.images.length > 1 && (
                             <>
-                                <button
+                                <Button
                                     onClick={prevSlide}
                                     className="absolute left-2 top-1/2 -translate-y-1/2 btn btn-circle bg-white/80 hover:bg-white"
                                 >
                                     ❮
-                                </button>
+                                </Button>
                                 <button
                                     onClick={nextSlide}
                                     className="absolute right-2 top-1/2 -translate-y-1/2 btn btn-circle bg-white/80 hover:bg-white"
@@ -68,7 +69,7 @@ export function ProjectDetaille({ projet }: Props) {
                                 </button>
                             </>
                         )}
-                    </div>
+                    </div> */}
 
                     {/* Bouton fermer */}
                     <div className="modal-action absolute bottom-4 right-4">

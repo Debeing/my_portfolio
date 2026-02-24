@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Mbaitel-am Mbainaissem Eric – Portfolio Développeur Web",
   description: "Portfolio en ligne de Mbaitel-am Mbainaissem Eric. Découvrez mes projets web, mes compétences en développement frontend et backend, et contactez-moi pour vos projets.",
   keywords: ["Portfolio", "Développeur Web", "React", "Next.js", "Node.js", "Projets", "Mbaitel-am Mbainaissem Eric"],
-  authors: [{ name: "Mbaitel-am Mbainaissem Eric", url: "https://github.com/Mbaitel-am-Mbainaissem-Eric" }],
+  authors: [{ name: "Mbaitel-am Mbainaissem Eric", url: "https://github.com/Debeing" }],
   openGraph: {
     title: "Mbaitel-am Mbainaissem Eric – Portfolio Développeur Web",
     description: "Découvrez mes projets web et compétences en développement frontend et backend.",
