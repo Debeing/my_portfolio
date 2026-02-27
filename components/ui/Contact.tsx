@@ -8,6 +8,7 @@ import { MapPin, Share2, Phone, Mail, Github, Linkedin, Loader2Icon } from 'luci
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 type Props = {
   langue: string
@@ -53,7 +54,7 @@ export default function Contact({ langue }: Props) {
   if (!mounted) {
     return (
       <section
-        id="contact"
+        id="contact "
         className="min-h-screen flex flex-col items-center justify-center px-6 md:px-12 py-20 gap-12 z-40"
       >
         <div className="w-64 h-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
@@ -151,9 +152,9 @@ export default function Contact({ langue }: Props) {
               {langue === "Anglais" ? "Follow me" : "Suivez-moi"}
             </h2>
             <div className="flex gap-4 text-xl text-gray-700 dark:text-gray-300">
-              <a href="https://github.com/Debeing/" target="_blank" className="hover:text-teal-500"><Github /></a>
-              <a href="https://www.linkedin.com/in/mbaitel-am-mbainaissem-eric-62a1b929a/" target="_blank" className="hover:text-teal-500"><Linkedin /></a>
-              <a href='mailto:mbaitelameric@gmail.com' className="hover:text-teal-500"><Mail /></a>
+              <Link href="https://github.com/Debeing/" target="_blank" className="hover:text-teal-500"><Github /></Link>
+              <Link href="https://www.linkedin.com/in/mbaitel-am-mbainaissem-eric-62a1b929a/" target="_blank" className="hover:text-teal-500"><Linkedin /></Link>
+              <Link href='mailto:mbaitelameric@gmail.com' className="hover:text-teal-500"><Mail /></Link  >
             </div>
           </motion.div>
         </div>
